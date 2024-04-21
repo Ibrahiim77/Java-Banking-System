@@ -1,0 +1,19 @@
+// Current Account Class
+
+class CurrentAccount extends Account {
+    private double limit;
+
+    public CurrentAccount(int accountNumber, double balance, double limit) {
+        super(accountNumber, balance);
+        this.limit = limit;
+    }
+
+    public void withdraw(double amount, double balance) {
+        if(amount <= getBalance() + limit) {
+            balance -=amount;
+        } else {
+            System.out.println("Insufficient funds");
+        }
+        
+    }
+}
