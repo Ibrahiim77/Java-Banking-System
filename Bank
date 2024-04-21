@@ -1,0 +1,71 @@
+//Main Class
+
+import java.util.Scanner;
+public class bank {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+       
+          int cs;
+        System.out.println("Select Account Type");
+        System.out.println("Press 1 for Current Account");
+        System.out.println("Press 2 for Saving Account");
+        System.out.print("Enter: ");
+        cs=sc.nextInt();
+        
+        switch (cs) {
+            case 1:
+       System.out.print("Enter Accout Number: ");    
+       int currentAccountNumber= sc.nextInt();
+
+        CurrentAccount currentAccount = new CurrentAccount(currentAccountNumber, 100000, 500);
+        currentAccount.checkBalance();
+
+        System.out.println("Enter Ammount to Deposit:");
+        double depositAmount= sc.nextDouble();
+        currentAccount.deposit(depositAmount);
+
+         currentAccount.checkBalance();
+
+        System.out.println("Enter Ammoun to Withdraw:");
+        double  withdrawAmmount= sc.nextDouble();
+        if(withdrawAmmount < 500){
+           System.out.println("Ammount Must be Atleast 500 to be Withdrawn");    
+        }else{
+             currentAccount.withdraw(withdrawAmmount);    
+        }
+
+        currentAccount.checkBalance();
+        
+                break;
+
+
+                case 2:
+                System.out.println("Saving Account Interest Rate is 10%");
+
+                System.out.print("Enter account number: ");
+                int savingsAccountNumber = sc.nextInt();
+                
+                SavingsAccount savingsAccount = new SavingsAccount(savingsAccountNumber, 100000, 5);
+        
+                savingsAccount.checkBalance();
+                System.out.println("Enter Ammount to deposit: ");
+                double SavingdepositAmmount = sc.nextDouble();
+                savingsAccount.deposit(SavingdepositAmmount);
+
+                savingsAccount.calculateInterest();
+                savingsAccount.checkBalance();
+
+                System.out.println("Enter Ammount to Withdraw: ");
+                double SavingWithdraw = sc.nextDouble();
+                savingsAccount.withdraw(SavingWithdraw);
+
+                savingsAccount.checkBalance();
+
+        
+            default:
+                break;
+        }
+
+    }
+}
