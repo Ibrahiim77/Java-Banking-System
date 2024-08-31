@@ -13,7 +13,7 @@ public class Account {
 
     public void deposit(double amount) {
         balance = balance + amount;
-        System.out.println(amount + " deposited successfully.");
+        System.out.println(amount + " deposited successfully hena.");
     }
 
     public void withdraw(double amount) {
